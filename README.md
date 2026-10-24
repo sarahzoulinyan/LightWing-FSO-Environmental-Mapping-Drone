@@ -43,9 +43,40 @@ The SecurIR source contains executable code rather than prerecorded demo videos:
 - [ESP-IDF receiver implementation](securir-comms/firmware/rx/main/main.c)
 - [Complete hardware and demo run guide](securir-comms/docs/run_guide.md)
 
+## Experimental Setup
+
+The following five images are presented in their original **(a)–(e)** sequence to illustrate a literature-reported UAV OAM-FSO test arrangement. They are **reference figures**, not photographs of hardware built or tested in this repository. The source citation and reuse permission must be added before these figures are used in a publication or redistributed outside the scope allowed by the source.
+
+| | |
+|---|---|
+| [![Reference experimental setup (a): OAM multiplexing, demultiplexing, and tracking equipment](assets/images/experimental-setup-a.png)](assets/images/experimental-setup-a.png) | [![Reference experimental setup (b): UAV-mounted retro-reflector and gimbal](assets/images/experimental-setup-b.png)](assets/images/experimental-setup-b.png) |
+| **(a)** Reference optical bench showing the OAM multiplexer, OAM demultiplexer, and tracking system. | **(b)** Reference UAV payload showing a gimbal-mounted retro-reflector. |
+| [![Reference experimental setup (c): outdoor UAV and ground-station link](assets/images/experimental-setup-c.png)](assets/images/experimental-setup-c.png) | [![Reference experimental setup (d): fine-tracking optics](assets/images/experimental-setup-d.png)](assets/images/experimental-setup-d.png) |
+| **(c)** Reference outdoor arrangement with the UAV in flight and the optical ground station in the foreground. | **(d)** Reference fine-tracking stage using a fast-steering mirror. |
+| [![Reference experimental setup (e): coarse-tracking stage](assets/images/experimental-setup-e.png)](assets/images/experimental-setup-e.png) | |
+| **(e)** Reference coarse-tracking stage with a two-axis mechanism and mirror. | |
+
+> **Reference-figure notice:** Images (a)–(e) were supplied without bibliographic metadata. Source citation: **to be added**. These images do not establish that LightWing reproduced the depicted equipment or experiment.
+
 ## System concept and engineering mechanism
 
 LightWing is an engineering reference architecture for an unmanned aerial vehicle (UAV) that uses a **Free-Space Optical (FSO)** link as a high-directionality data channel in electromagnetically congested or radio-restricted environments. The present repository provides an ESP32-based infrared optical-link prototype, its host-side telemetry software, and FSO field materials. Airframe integration, autonomous navigation, stabilized optical pointing, and environmental-mapping payloads are described below as the target system architecture; those subsystems are not implemented by the current source tree.
+
+### OAM-FSO theory
+
+Orbital Angular Momentum (OAM) multiplexing uses spatially distinct helical optical modes as parallel channels. In an OAM-FSO link, independent data streams can be mapped onto different OAM orders, combined for free-space transmission, and separated at the receiver. This can increase aggregate capacity, but practical performance depends on modal purity, aperture size, atmospheric conditions, alignment, and the pointing/acquisition/tracking loop. The repository's present ESP32 infrared prototype uses OOK and Manchester coding; it does **not** implement the literature OAM system shown below.
+
+[![Reference concept diagram of an OAM-multiplexed FSO link between a ground station and UAV](assets/images/reference-oam-fso-concept.png)](assets/images/reference-oam-fso-concept.png)
+
+*Reference figure — Conceptual OAM-multiplexed bidirectional FSO link between a tracking ground station and UAV. Source citation: **to be added**. Not project-original experimental evidence.*
+
+### OAM-FSO system architecture
+
+The literature architecture below illustrates a 50 m outbound and reflected optical path, OAM multiplexing/demultiplexing, coherent reception, beam expansion/reduction, gimbal steering, and a probe-beam feedback loop driving a fast-steering mirror. It is useful as an integration reference for a future high-capacity terminal, but it is not the implemented architecture of the current LightWing prototype.
+
+[![Reference OAM-FSO system architecture with ground-station tracking and UAV retro-reflector](assets/images/reference-oam-fso-system-architecture.png)](assets/images/reference-oam-fso-system-architecture.png)
+
+*Reference figure — Literature-reported OAM-FSO system and detailed optical/tracking chain. Source citation: **to be added**. Not project-original hardware or measurements.*
 
 ### Functional architecture
 
@@ -74,6 +105,30 @@ P_r ≈ P_t · η_t · η_r · [A_r / (π(R·θ/2)²)] · exp(-σR) · L_pointin
 ```
 
 where `P_t` is launched optical power, `η_t` and `η_r` are terminal efficiencies, `A_r` is receive-aperture area, `R` is slant range, `θ` is full-angle beam divergence, `σ` is the atmospheric extinction coefficient, and `L_pointing` represents acquisition/tracking loss. A usable link requires positive **link margin** after photodetector sensitivity, background-shot-noise, scintillation, coding gain, and implementation losses are included. This equation is a design model, not a measured performance claim for the current LED/VS1838B prototype.
+
+### Beam misalignment and modal crosstalk
+
+Lateral displacement and transmitter/receiver tip-tilt errors reduce coupling into the intended spatial mode and redistribute received power into neighboring OAM orders. A PAT controller therefore has to limit both centroid error and angular error; received-power maximization alone may not guarantee minimum modal crosstalk.
+
+[![Reference diagram and plots for lateral-displacement and tip-tilt misalignment in an OAM link](assets/images/reference-beam-misalignment.png)](assets/images/reference-beam-misalignment.png)
+
+*Reference figure — Qualitative alignment cases and example measured/simulated received-power trends for an OAM link. Source citation: **to be added**. The plotted values are not LightWing results.*
+
+### Atmospheric turbulence
+
+Index-of-refraction fluctuations cause scintillation, wavefront distortion, beam wander, and coupling between OAM modes. The normalized-power distributions below illustrate two reported turbulence strengths at 100 m, while the modal-power bars compare a reported OAM +1 transmission case with propellers on and off. These conditions and results have not been reproduced by this repository.
+
+[![Reference turbulence statistics and received OAM-order power distribution](assets/images/reference-turbulence-statistics.png)](assets/images/reference-turbulence-statistics.png)
+
+*Reference figure — Example normalized-power probability densities and received modal-power distribution under literature-reported conditions. Source citation: **to be added**. Not project-original data.*
+
+### BER analysis
+
+Bit Error Rate (BER) is the end-to-end metric that links transmitted optical power, range, platform motion, mode selection, crosstalk, and receiver sensitivity. The dashed threshold in the reference plots denotes a reported 7% overhead FEC limit; it must not be applied to LightWing without matching the modulation, coding, detector, bandwidth, and channel assumptions.
+
+[![Reference BER plots for OAM channels, hover/static cases, transmitted power, and round-trip range](assets/images/reference-ber-results.png)](assets/images/reference-ber-results.png)
+
+*Reference figure — Literature-reported BER examples versus time and transmitted power for several OAM/static/hover/range configurations. Source citation: **to be added**. The curves are not measurements from this repository.*
 
 ### UAV pointing, navigation, and mapping architecture
 
