@@ -9,6 +9,42 @@ The two sources are kept in separate, clearly named subdirectories so no upstrea
 
 ## What is included
 
+## Photo gallery and demos
+
+All 11 photographs and measurement plots from the FSO source are displayed below. Select any image to open the original full-resolution file.
+
+### Optical-terminal and rooftop photographs
+
+| | |
+|---|---|
+| [![FSO optical terminal close-up 01](fso-field-experiment/images/fso_optical_terminal_closeup_01.jpg)](fso-field-experiment/images/fso_optical_terminal_closeup_01.jpg) | [![FSO optical terminal close-up 02](fso-field-experiment/images/fso_optical_terminal_closeup_02.jpg)](fso-field-experiment/images/fso_optical_terminal_closeup_02.jpg) |
+| **Optical terminal close-up 01** | **Optical terminal close-up 02** |
+| [![FSO optical terminal close-up 03](fso-field-experiment/images/fso_optical_terminal_closeup_03.jpg)](fso-field-experiment/images/fso_optical_terminal_closeup_03.jpg) | [![FSO rooftop link overview 01](fso-field-experiment/images/fso_rooftop_link_overview_01.jpg)](fso-field-experiment/images/fso_rooftop_link_overview_01.jpg) |
+| **Optical terminal close-up 03** | **Rooftop link overview 01** |
+| [![FSO rooftop link overview 02](fso-field-experiment/images/fso_rooftop_link_overview_02.jpg)](fso-field-experiment/images/fso_rooftop_link_overview_02.jpg) | |
+| **Rooftop link overview 02** | |
+
+### Measurement plots
+
+| | |
+|---|---|
+| [![FSO loss measurement 1](fso-field-experiment/images/Loss_1.png)](fso-field-experiment/images/Loss_1.png) | [![FSO loss measurement 2](fso-field-experiment/images/Loss_2.png)](fso-field-experiment/images/Loss_2.png) |
+| **Loss 1** | **Loss 2** |
+| [![FSO RTT measurement 1](fso-field-experiment/images/RTT_1.png)](fso-field-experiment/images/RTT_1.png) | [![FSO throughput measurement 1](fso-field-experiment/images/Throughput_1.png)](fso-field-experiment/images/Throughput_1.png) |
+| **RTT 1** | **Throughput 1** |
+| [![FSO throughput measurement 2](fso-field-experiment/images/Throughput_2.png)](fso-field-experiment/images/Throughput_2.png) | [![FSO throughput measurement 3](fso-field-experiment/images/Throughput_3.png)](fso-field-experiment/images/Throughput_3.png) |
+| **Throughput 2** | **Throughput 3** |
+
+### Video and runnable prototype demos
+
+- [▶ Open the complete received optical-power fluctuation video (MP4)](fso-field-experiment/videos/power%20fluctuation_01.mp4)
+- [▶ Launch the SecurIR Python host GUI](securir-comms/host/gui_app.py) — install the requirements and run the commands in [Run the SecurIR prototype](#run-the-securir-prototype).
+- [▶ ESP32 transmitter demo (Arduino)](securir-comms/firmware/arduino/tx/tx.ino)
+- [▶ ESP32 receiver demo (Arduino)](securir-comms/firmware/arduino/rx/rx.ino)
+- [▶ ESP-IDF transmitter implementation](securir-comms/firmware/tx/main/main.c)
+- [▶ ESP-IDF receiver implementation](securir-comms/firmware/rx/main/main.c)
+- [Complete hardware and demo run guide](securir-comms/docs/run_guide.md)
+
 ### FSO field materials
 
 The `fso-field-experiment/` directory contains:
