@@ -24,6 +24,13 @@ Captured commit: [`9251e23b7b55854d2188a2ede59132f46ade5404`](https://github.com
 - `videos/.gitkeep` — 17 bytes — blob `9234e7d561391c5fe4217ad5c5d3a9fa9c33052e`
 - `videos/power fluctuation_01.mp4` — 2344876 bytes — blob `e34b31b8df05c93bf4c7e02d61f1e9b753d712fd`
 
+### Derived display assets
+
+These two files were generated from the preserved source MP4 solely to improve browser playback and README presentation; they are not upstream files.
+
+- `videos/power_fluctuation_01_compressed.mp4` — 675998 bytes — H.264/AAC compressed copy — blob `e6f04ff3ed35bb57acd96fff4f686ac644865e6c`
+- `videos/power_fluctuation_01_preview.gif` — 2751254 bytes — full-duration animated README preview — blob `8dfffdef80db875635899669e1660fca9c0fa797`
+
 ## `securir-comms/`
 
 Source: <https://github.com/Hiresh444/SecurIR_comms>

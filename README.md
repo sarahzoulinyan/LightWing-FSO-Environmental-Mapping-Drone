@@ -35,14 +35,21 @@ All 11 photographs and measurement plots from the FSO source are displayed below
 | [![FSO throughput measurement 2](fso-field-experiment/images/Throughput_2.png)](fso-field-experiment/images/Throughput_2.png) | [![FSO throughput measurement 3](fso-field-experiment/images/Throughput_3.png)](fso-field-experiment/images/Throughput_3.png) |
 | **Throughput 2** | **Throughput 3** |
 
-### Video and runnable prototype demos
+### Video demo
 
-- [▶ Open the complete received optical-power fluctuation video (MP4)](fso-field-experiment/videos/power%20fluctuation_01.mp4)
-- [▶ Launch the SecurIR Python host GUI](securir-comms/host/gui_app.py) — install the requirements and run the commands in [Run the SecurIR prototype](#run-the-securir-prototype).
-- [▶ ESP32 transmitter demo (Arduino)](securir-comms/firmware/arduino/tx/tx.ino)
-- [▶ ESP32 receiver demo (Arduino)](securir-comms/firmware/arduino/rx/rx.ino)
-- [▶ ESP-IDF transmitter implementation](securir-comms/firmware/tx/main/main.c)
-- [▶ ESP-IDF receiver implementation](securir-comms/firmware/rx/main/main.c)
+[![Received optical-power fluctuation video preview](fso-field-experiment/videos/power_fluctuation_01_preview.gif)](fso-field-experiment/videos/power_fluctuation_01_compressed.mp4)
+
+The complete 21-second video plays as an animated preview directly in this README. Select the preview to open the compressed H.264 MP4 with audio. The [unaltered source MP4](fso-field-experiment/videos/power%20fluctuation_01.mp4) is also preserved for provenance.
+
+### Runnable prototype entry points
+
+The SecurIR source contains executable code rather than prerecorded demo videos:
+
+- [Launch the SecurIR Python host GUI](securir-comms/host/gui_app.py) — install the requirements and run the commands in [Run the SecurIR prototype](#run-the-securir-prototype).
+- [ESP32 transmitter demo (Arduino)](securir-comms/firmware/arduino/tx/tx.ino)
+- [ESP32 receiver demo (Arduino)](securir-comms/firmware/arduino/rx/rx.ino)
+- [ESP-IDF transmitter implementation](securir-comms/firmware/tx/main/main.c)
+- [ESP-IDF receiver implementation](securir-comms/firmware/rx/main/main.c)
 - [Complete hardware and demo run guide](securir-comms/docs/run_guide.md)
 
 ### FSO field materials
@@ -50,7 +57,7 @@ All 11 photographs and measurement plots from the FSO source are displayed below
 The `fso-field-experiment/` directory contains:
 
 - 11 image files: six PNG measurement plots and five JPG photographs.
-- 1 MP4 showing received optical-power fluctuation.
+- 1 original MP4 showing received optical-power fluctuation, plus a derived compressed MP4 and README-compatible animated preview.
 - The upstream README and placeholder files.
 
 These files document an FSO field-experiment setting. They are included on the repository owner's representation that they own the relevant image and video rights. The upstream source and exact captured commit remain recorded. The materials are not relicensed here; reuse requires permission from the rights holder.
