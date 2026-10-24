@@ -89,12 +89,6 @@ sensor exposure → hardware timestamp → pose interpolation → coordinate-fra
 
 Reliable geospatial products require calibrated camera intrinsics/extrinsics, a defined ENU or NED navigation frame, synchronized sensor and autopilot clocks, uncertainty propagation, and quality flags for GNSS degradation, motion blur, occlusion, and packet loss. For GNSS-denied operations, visual-inertial odometry or LiDAR SLAM could provide local pose estimates, followed by loop closure and later registration to an absolute map.
 
-### EMI resilience and link limitations
-
-Because the propagation medium is optical rather than radio-frequency, the data channel does not occupy RF spectrum and is inherently resistant to RF co-channel interference, spectrum congestion, and conventional RF jamming. This does **not** make the complete aircraft immune to electromagnetic interference: the flight controller, GNSS receiver, DC/DC converters, motor electronic speed controllers, wiring harnesses, and sensor buses still require EMC engineering. Practical mitigations include shielded enclosures, controlled grounding, cable segregation, common-mode chokes, LC or π filtering, transient suppression, decoupling, and conducted/radiated-emissions testing.
-
-The dominant optical failure modes are line-of-sight blockage, beam wander, platform jitter, saturation by solar background, fog/rain/smoke attenuation, receiver field-of-view loss, and thermal limits at the emitter. A deployable design should combine link-quality estimation, adaptive data rate, FEC/interleaving, retransmission policy, store-and-forward buffering, and a safe fallback control channel. Flight safety must never depend exclusively on an experimental payload link.
-
 ## Disaster-response concept of operations
 
 The following are prospective **Concept of Operations (CONOPS)** examples, not claims of completed emergency deployments:
