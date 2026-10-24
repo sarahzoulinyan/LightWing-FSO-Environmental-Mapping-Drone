@@ -1,5 +1,48 @@
 # LightWing: An Optical-Communication (FSO) Environmental Mapping Drone for EMI Environments
 
+## Photo gallery and demos
+
+All 11 photographs and measurement plots from the FSO source are displayed below. Select any image to open the original full-resolution file.
+
+### Optical-terminal and rooftop photographs
+
+| | |
+|---|---|
+| [![FSO optical terminal close-up 01](fso-field-experiment/images/fso_optical_terminal_closeup_01.jpg)](fso-field-experiment/images/fso_optical_terminal_closeup_01.jpg) | [![FSO optical terminal close-up 02](fso-field-experiment/images/fso_optical_terminal_closeup_02.jpg)](fso-field-experiment/images/fso_optical_terminal_closeup_02.jpg) |
+| **Optical terminal close-up 01** | **Optical terminal close-up 02** |
+| [![FSO optical terminal close-up 03](fso-field-experiment/images/fso_optical_terminal_closeup_03.jpg)](fso-field-experiment/images/fso_optical_terminal_closeup_03.jpg) | [![FSO rooftop link overview 01](fso-field-experiment/images/fso_rooftop_link_overview_01.jpg)](fso-field-experiment/images/fso_rooftop_link_overview_01.jpg) |
+| **Optical terminal close-up 03** | **Rooftop link overview 01** |
+| [![FSO rooftop link overview 02](fso-field-experiment/images/fso_rooftop_link_overview_02.jpg)](fso-field-experiment/images/fso_rooftop_link_overview_02.jpg) | |
+| **Rooftop link overview 02** | |
+
+### Measurement plots
+
+| | |
+|---|---|
+| [![FSO loss measurement 1](fso-field-experiment/images/Loss_1.png)](fso-field-experiment/images/Loss_1.png) | [![FSO loss measurement 2](fso-field-experiment/images/Loss_2.png)](fso-field-experiment/images/Loss_2.png) |
+| **Loss 1** | **Loss 2** |
+| [![FSO RTT measurement 1](fso-field-experiment/images/RTT_1.png)](fso-field-experiment/images/RTT_1.png) | [![FSO throughput measurement 1](fso-field-experiment/images/Throughput_1.png)](fso-field-experiment/images/Throughput_1.png) |
+| **RTT 1** | **Throughput 1** |
+| [![FSO throughput measurement 2](fso-field-experiment/images/Throughput_2.png)](fso-field-experiment/images/Throughput_2.png) | [![FSO throughput measurement 3](fso-field-experiment/images/Throughput_3.png)](fso-field-experiment/images/Throughput_3.png) |
+| **Throughput 2** | **Throughput 3** |
+
+### Video demo
+
+[![Received optical-power fluctuation video preview](fso-field-experiment/videos/power_fluctuation_01_preview.gif)](fso-field-experiment/videos/power_fluctuation_01_compressed.mp4)
+
+The complete 21-second video plays as an animated preview directly in this README. Select the preview to open the compressed H.264 MP4 with audio. The [unaltered source MP4](fso-field-experiment/videos/power%20fluctuation_01.mp4) is also preserved for provenance.
+
+### Runnable prototype entry points
+
+The SecurIR source contains executable code rather than prerecorded demo videos:
+
+- [Launch the SecurIR Python host GUI](securir-comms/host/gui_app.py) — install the requirements and run the commands in [Run the SecurIR prototype](#run-the-securir-prototype).
+- [ESP32 transmitter demo (Arduino)](securir-comms/firmware/arduino/tx/tx.ino)
+- [ESP32 receiver demo (Arduino)](securir-comms/firmware/arduino/rx/rx.ino)
+- [ESP-IDF transmitter implementation](securir-comms/firmware/tx/main/main.c)
+- [ESP-IDF receiver implementation](securir-comms/firmware/rx/main/main.c)
+- [Complete hardware and demo run guide](securir-comms/docs/run_guide.md)
+
 ## System concept and engineering mechanism
 
 LightWing is an engineering reference architecture for an unmanned aerial vehicle (UAV) that uses a **Free-Space Optical (FSO)** link as a high-directionality data channel in electromagnetically congested or radio-restricted environments. The present repository provides an ESP32-based infrared optical-link prototype, its host-side telemetry software, and FSO field materials. Airframe integration, autonomous navigation, stabilized optical pointing, and environmental-mapping payloads are described below as the target system architecture; those subsystems are not implemented by the current source tree.
@@ -72,49 +115,6 @@ The following are prospective **Concept of Operations (CONOPS)** examples, not c
 4. **Hardware-in-the-loop integration:** connect the payload link to an autopilot/companion computer, define MAVLink or equivalent message routing, enforce bandwidth prioritization, and verify that link faults cannot affect flight-critical control.
 5. **Mapping payload integration:** calibrate sensor-to-body transforms, timestamp synchronization, georeferencing accuracy, and ground-station GIS ingestion.
 6. **Outdoor and disaster-representative testing:** evaluate sunlight, wind, vibration, fog/rain/smoke attenuation, obstruction recovery, thermal behavior, EMI/EMC exposure, and fail-safe procedures under an approved safety plan.
-
-## Photo gallery and demos
-
-All 11 photographs and measurement plots from the FSO source are displayed below. Select any image to open the original full-resolution file.
-
-### Optical-terminal and rooftop photographs
-
-| | |
-|---|---|
-| [![FSO optical terminal close-up 01](fso-field-experiment/images/fso_optical_terminal_closeup_01.jpg)](fso-field-experiment/images/fso_optical_terminal_closeup_01.jpg) | [![FSO optical terminal close-up 02](fso-field-experiment/images/fso_optical_terminal_closeup_02.jpg)](fso-field-experiment/images/fso_optical_terminal_closeup_02.jpg) |
-| **Optical terminal close-up 01** | **Optical terminal close-up 02** |
-| [![FSO optical terminal close-up 03](fso-field-experiment/images/fso_optical_terminal_closeup_03.jpg)](fso-field-experiment/images/fso_optical_terminal_closeup_03.jpg) | [![FSO rooftop link overview 01](fso-field-experiment/images/fso_rooftop_link_overview_01.jpg)](fso-field-experiment/images/fso_rooftop_link_overview_01.jpg) |
-| **Optical terminal close-up 03** | **Rooftop link overview 01** |
-| [![FSO rooftop link overview 02](fso-field-experiment/images/fso_rooftop_link_overview_02.jpg)](fso-field-experiment/images/fso_rooftop_link_overview_02.jpg) | |
-| **Rooftop link overview 02** | |
-
-### Measurement plots
-
-| | |
-|---|---|
-| [![FSO loss measurement 1](fso-field-experiment/images/Loss_1.png)](fso-field-experiment/images/Loss_1.png) | [![FSO loss measurement 2](fso-field-experiment/images/Loss_2.png)](fso-field-experiment/images/Loss_2.png) |
-| **Loss 1** | **Loss 2** |
-| [![FSO RTT measurement 1](fso-field-experiment/images/RTT_1.png)](fso-field-experiment/images/RTT_1.png) | [![FSO throughput measurement 1](fso-field-experiment/images/Throughput_1.png)](fso-field-experiment/images/Throughput_1.png) |
-| **RTT 1** | **Throughput 1** |
-| [![FSO throughput measurement 2](fso-field-experiment/images/Throughput_2.png)](fso-field-experiment/images/Throughput_2.png) | [![FSO throughput measurement 3](fso-field-experiment/images/Throughput_3.png)](fso-field-experiment/images/Throughput_3.png) |
-| **Throughput 2** | **Throughput 3** |
-
-### Video demo
-
-[![Received optical-power fluctuation video preview](fso-field-experiment/videos/power_fluctuation_01_preview.gif)](fso-field-experiment/videos/power_fluctuation_01_compressed.mp4)
-
-The complete 21-second video plays as an animated preview directly in this README. Select the preview to open the compressed H.264 MP4 with audio. The [unaltered source MP4](fso-field-experiment/videos/power%20fluctuation_01.mp4) is also preserved for provenance.
-
-### Runnable prototype entry points
-
-The SecurIR source contains executable code rather than prerecorded demo videos:
-
-- [Launch the SecurIR Python host GUI](securir-comms/host/gui_app.py) — install the requirements and run the commands in [Run the SecurIR prototype](#run-the-securir-prototype).
-- [ESP32 transmitter demo (Arduino)](securir-comms/firmware/arduino/tx/tx.ino)
-- [ESP32 receiver demo (Arduino)](securir-comms/firmware/arduino/rx/rx.ino)
-- [ESP-IDF transmitter implementation](securir-comms/firmware/tx/main/main.c)
-- [ESP-IDF receiver implementation](securir-comms/firmware/rx/main/main.c)
-- [Complete hardware and demo run guide](securir-comms/docs/run_guide.md)
 
 ### FSO field materials
 
